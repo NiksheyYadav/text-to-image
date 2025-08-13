@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Image Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold text-center mb-8">Text to Image Generator</h1>
+        
+        <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-6">
+            <div class="mb-6">
+                <label for="prompt" class="block text-gray-700 font-medium mb-2">Enter your prompt:</label>
+                <textarea id="prompt" rows="3" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500" 
+                          placeholder="A beautiful landscape with mountains and a lake..."></textarea>
+            </div>
+            
+            <div class="flex justify-center mb-6">
+                <button id="generateBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition-colors">
+                    Generate Image
+                </button>
+            </div>
+            
+            <div id="loading" class="hidden text-center py-8">
+                <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mx-auto"></div>
+                <p class="mt-4 text-gray-600">Generating your image...</p>
+            </div>
+            
+            <div id="result" class="hidden">
+                <h2 class="text-2xl font-semibold mb-4">Generated Image</h2>
+                <div class="border rounded-lg overflow-hidden">
+                    <img id="generatedImage" class="w-full" alt="Generated image will appear here">
+                </div>
+                <div class="mt-4 flex justify-end">
+                    <button id="downloadBtn" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">
+                        Download Image
+                    </button>
+                </div>
+            </div>
+            
+            <div id="error" class="hidden bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mt-6" role="alert">
+                <p id="errorMessage"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
